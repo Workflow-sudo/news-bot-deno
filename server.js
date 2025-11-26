@@ -1,14 +1,14 @@
 import express from "express";
-import run from "./index.js"; // your main logic
+import run from "./index.js";
 
 const app = express();
 
 app.get("/run", async (req, res) => {
   try {
-    await run(); // call your scraper
+    await run();
     res.send("done");
-  } catch (e) {
-    console.error(e);
+  } catch (err) {
+    console.error(err);
     res.status(500).send("error");
   }
 });
