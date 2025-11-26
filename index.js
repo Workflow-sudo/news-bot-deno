@@ -7,12 +7,13 @@ import fetch from "node-fetch";
 const WEBHOOK = process.env.N8N_WEBHOOK_URL;
 const MAX = Number(process.env.MAX_ARTICLES || 5);
 
-async function run() {
+export default async function run() {
   console.log("RUN START");
   const articles = await scrape();
   const chosen = articles.slice(0, MAX);
 
   const results = [];
+
   for (const a of chosen) {
     console.log("Extracting:", a.title);
     const text = await extract(a.link);
@@ -30,5 +31,3 @@ async function run() {
 
   console.log("SENT TO N8N");
 }
-
-run();
