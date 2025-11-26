@@ -1,13 +1,10 @@
 {
-  "name": "news-bot",
-  "version": "1.0.0",
-  "type": "module",
-  "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "postinstall": "npx playwright install chromium"
   },
   "dependencies": {
+    "express": "^4.18.2",
     "playwright": "^1.40.0",
     "axios": "^1.4.0",
     "node-fetch": "^3.3.2",
